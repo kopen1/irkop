@@ -1,0 +1,11 @@
+/node_modules
+/.pnp
+/.next /out /.vercel /.cloudflare
+.DS_Store
+*.log
+
+# secrets — NEVER commit
+.env .env.local .env.*.local
+.dev.vars
+.wrangler/
+.vscode .idea

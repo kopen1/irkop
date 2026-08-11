@@ -1,0 +1,7 @@
+name = "irkop"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = ".vercel/output/static"
+[vars]
+ENVIRONMENT = "production"
+# Worker URL — fill after worker first deploy
+WORKER_URL = "https://landing-page.<your-sub>.workers.dev"

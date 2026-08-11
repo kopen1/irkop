@@ -1,0 +1,14 @@
+name = "landing-page"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+[vars]
+ENVIRONMENT = "production"
+PUBLIC_DOMAIN = "irkop.pages.dev"
+ALLOWED_ORIGIN = "https://irkop.pages.dev"
+[[d1_databases]]
+binding = "DB"
+database_name = "irkop-db"
+database_id = "a7b24294-2888-4c24-a9c0-fa10fc100116"
+migrations_dir = "migrations"
+# secrets: SESSION_SECRET, ADMIN_BOOTSTRAP_TOKEN — set via `wrangler secret put`
