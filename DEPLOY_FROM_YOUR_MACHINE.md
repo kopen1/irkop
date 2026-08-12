@@ -47,7 +47,7 @@ Dashboard → Pages → Create application → Connect to Git → pilih `kopen1/
 - Env var: `WORKER_URL` = <Worker URL dari langkah 3>
 - Save and Deploy
 
-URL produksi: **https://irkop.pages.dev**
+URL produksi: **https://home.irkop.workers.dev**
 
 ### 5. Admin pertama
 Lihat `ADMIN_BOOTSTRAP.md`
