@@ -3,19 +3,19 @@
 ## Langkah
 
 ```bash
-WORKER="https://landing-page.<sub>.workers.dev"
+WORKER="https://home.irkop.workers.dev"
 ADM_TOKEN="<ADMIN_BOOTSTRAP_TOKEN value>"
 
 # a) Daftar akun biasa (role=user default)
 curl -sS -X POST "$WORKER/api/auth/register" \
   -H "content-type: application/json" \
-  -d '{"email":"admin@irkop.pages.dev","name":"Site Admin","password":"<strong>"}'
+  -d '{"email":"admin@home.irkop.workers.dev","name":"Site Admin","password":"<strong>"}'
 
 # b) Promote via /api/admin/bootstrap (perlu handler + token)
 curl -sS -X POST "$WORKER/api/admin/bootstrap" \
   -H "content-type: application/json" \
   -H "x-bootstrap-token: $ADM_TOKEN" \
-  -d '{"email":"admin@irkop.pages.dev"}'
+  -d '{"email":"admin@home.irkop.workers.dev"}'
 ```
 
 ## Handler template (tambahkan ke worker/src jika belum ada)
