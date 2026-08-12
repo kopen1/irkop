@@ -9,13 +9,20 @@
     "worker:dev": "cd worker && wrangler dev",
     "worker:deploy": "cd worker && wrangler deploy"
   },
-  "dependencies": { "next": "14.2.5", "react": "18.3.1", "react-dom": "18.3.1" },
+  "dependencies": {
+    "next": "^16.3.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
   "devDependencies": {
     "@cloudflare/next-on-pages": "1.13.1",
-    "@cloudflare/workers-types": "4.20240605.0",
+    "@cloudflare/workers-types": "4.20250408.0",
     "@types/node": "20.14.10",
-    "@types/react": "18.3.3", "@types/react-dom": "18.3.0",
-    "typescript": "5.5.3", "wrangler": "3.65.1",
-    "eslint": "8.57.0", "eslint-config-next": "14.2.5"
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.0",
+    "typescript": "5.5.3",
+    "wrangler": "3.114.17"
   }
 }
