@@ -1,6 +1,6 @@
 import { resolveSession, hashIp } from './sessions';
 import { handleRegister, handleLogin, handleLogout, handleMe } from './handlers-auth';
-import { handleProfile, handleSessions, handleActivityList } from './handlers-user';
+import { handleProfile, handleSessions, handleActivity } from './handlers-user';
 import { handleToolsList } from './handlers-tools';
 import { handleAdminUserList, handleAdminUserUpdate, handleAdminActivity, handleAdminSettings } from './handlers-admin';
 import { jsonError } from './rbac';
@@ -35,7 +35,7 @@ export default {
         case method==='GET'  && url.pathname==='/api/auth/me':       response=await handleMe(request,env,ctx); break;
         case method==='GET'  && url.pathname==='/api/user/profile':  response=await handleProfile(request,env,ctx); break;
         case method==='GET'  && url.pathname==='/api/user/sessions': response=await handleSessions(request,env,ctx); break;
-        case method==='GET'  && url.pathname==='/api/user/activity': response=await handleActivityList(request,env,ctx); break;
+        case method==='GET'  && url.pathname==='/api/user/activity': response=await handleActivity(request,env,ctx); break;
         case method==='GET'  && url.pathname==='/api/tools':         response=await handleToolsList(request,env,ctx); break;
         case method==='GET'  && url.pathname==='/api/admin/users':   response=await handleAdminUserList(request,env,ctx); break;
         case method==='PATCH' && /^\/api\/admin\/users\/[^/]+$/.test(url.pathname):
