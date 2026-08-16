@@ -1,12 +1,18 @@
-import Link from 'next/link';
+'use client';
+
+import { useEffect, useState } from 'react';
+
 export default function SiteFooter() {
-  const year = new Date().getFullYear();
+  const [year, setYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
-    <footer className="site-footer" role="contentinfo">
-      <div className="container">
-        <p>© {year} IRKOP · Standalone platform · Not affiliated with Irkop Cell.</p>
-        <p><Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link></p>
-      </div>
+    <footer className="site-footer">
+      <span>IRKOP · Standalone Platform</span>
+      <span>© {year}</span>
     </footer>
   );
 }
