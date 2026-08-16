@@ -1,4 +1,7 @@
 import type { MetadataRoute } from 'next';
+
+export const runtime = 'edge';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://irkop.pages.dev';
   const now = new Date();
