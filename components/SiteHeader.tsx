@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 interface SiteHeaderProps {
-  variant?: 'default' | 'app';
+  variant?: 'default' | 'app' | 'admin';
 }
 
 export default function SiteHeader({ variant = 'default' }: SiteHeaderProps) {
@@ -27,6 +27,24 @@ export default function SiteHeader({ variant = 'default' }: SiteHeaderProps) {
             <Link href="/login" className="btn btn-secondary">
               Sign in
             </Link>
+          </>
+        ) : variant === 'admin' ? (
+          <>
+            <Link href="/admin" style={{ textDecoration: isActive('/admin') ? 'underline' : 'none' }}>
+              Dashboard
+            </Link>
+            <Link href="/admin/users" style={{ textDecoration: isActive('/admin/users') ? 'underline' : 'none' }}>
+              Users
+            </Link>
+            <Link href="/admin/settings" style={{ textDecoration: isActive('/admin/settings') ? 'underline' : 'none' }}>
+              Settings
+            </Link>
+            <Link href="/admin/activity" style={{ textDecoration: isActive('/admin/activity') ? 'underline' : 'none' }}>
+              Activity
+            </Link>
+            <a href="#" onClick={() => alert('Sign out')} style={{ cursor: 'pointer' }}>
+              Sign out
+            </a>
           </>
         ) : (
           <>
