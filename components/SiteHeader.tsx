@@ -1,30 +1,48 @@
+'use client';
+
 import Link from 'next/link';
-export default function SiteHeader({ variant = 'public', userLabel = null }: {
-  variant?: 'public'|'app'|'admin'; userLabel?: string|null;
-}) {
+import { usePathname } from 'next/navigation';
+
+interface SiteHeaderProps {
+  variant?: 'default' | 'app';
+}
+
+export default function SiteHeader({ variant = 'default' }: SiteHeaderProps) {
+  const pathname = usePathname();
+
+  const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');
+
   return (
-    <header className="site-header" role="banner">
-      <Link href="/" className="brand">IRKOP</Link>
-      <nav aria-label="Primary">
-        {variant === 'public' && (
-          <><Link href="/konter">Tools</Link><Link href="/login">Login</Link>
-           <Link href="/register" className="btn">Register</Link></>
-        )}
-        {variant === 'app' && (
-          <><Link href="/app">Hub</Link><Link href="/app/tools">Tools</Link>
-           <Link href="/app/profile">Profile</Link><Link href="/app/settings">Settings</Link>
-           <span className="muted">{userLabel ?? 'Account'}</span>
-           <form action="/api/auth/logout" method="post">
-             <button type="submit" className="btn btn-secondary">Sign out</button>
-           </form></>
-        )}
-        {variant === 'admin' && (
-          <><Link href="/admin">Overview</Link><Link href="/admin/users">Users</Link>
-           <Link href="/admin/activity">Activity</Link><Link href="/admin/settings">Settings</Link>
-           <span className="muted">{userLabel ?? 'Admin'}</span>
-           <form action="/api/auth/logout" method="post">
-             <button type="submit" className="btn btn-secondary">Sign out</button>
-           </form></>
+    <header className="site-header">
+      <Link href="/" className="brand">
+        IRKOP
+      </Link>
+      <nav>
+        {variant === 'default' ? (
+          <>
+            <Link href="/#alur">How it works</Link>
+            <Link href="/register" className="btn">
+              Create account
+            </Link>
+            <Link href="/login" className="btn btn-secondary">
+              Sign in
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link href="/app" style={{ textDecoration: isActive('/app') ? 'underline' : 'none' }}>
+              Dashboard
+            </Link>
+            <Link href="/app/profile" style={{ textDecoration: isActive('/app/profile') ? 'underline' : 'none' }}>
+              Profile
+            </Link>
+            <Link href="/app/settings" style={{ textDecoration: isActive('/app/settings') ? 'underline' : 'none' }}>
+              Settings
+            </Link>
+            <a href="#" onClick={() => alert('Sign out')} style={{ cursor: 'pointer' }}>
+              Sign out
+            </a>
+          </>
         )}
       </nav>
     </header>
